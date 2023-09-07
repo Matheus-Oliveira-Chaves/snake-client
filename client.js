@@ -13,6 +13,13 @@ const connect = function () {
     conn.write("Name: MAT");
   });
 
+  conn.on("connect", () => {
+
+    setInterval(() => {
+      conn.write("Move: up");
+    }, 50);
+
+
 
 
   conn.on("data", (data) => {
@@ -20,7 +27,8 @@ const connect = function () {
   });
 
   return conn;
-};
+  });
+}
 
 module.exports = {
   net,
