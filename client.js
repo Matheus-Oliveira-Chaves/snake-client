@@ -1,9 +1,11 @@
 const net = require("net");
+const {IP, PORT} = require("./constants")
+
 
 const connect = function () {
   const conn = net.createConnection({
-    host: "localhost",
-    port: 50541
+    host: IP,
+    port: PORT,
   });
 
   conn.setEncoding("utf8");
@@ -13,24 +15,22 @@ const connect = function () {
     conn.write("Name: MAT");
   });
 
-  conn.on("connect", () => {
-
-    setInterval(() => {
-      conn.write("Move: up");
-    }, 50);
-
-
-
-
-  conn.on("data", (data) => {
-    console.log(data);
-  });
-
-  return conn;
-  });
-}
-
+  
+  // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 50);
+    
+    conn.on("data", (data) => {
+      console.log(data);
+    });
+    
+    return conn;
+  };
+  
+  
+  
 module.exports = {
   net,
   connect,
+  
 }
