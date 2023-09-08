@@ -16,17 +16,13 @@ const handleUserInput = function (key) {
     console.log("Exiting the game.");
     process.exit();
   } else if (key === 'w') { // 'w' key
-    console.log("Move: up");
     connection.write("Move: up")
    
   } else if (key === 'a') { // 'a' key
-    console.log("Move: left");
     connection.write("Move: left")
   } else if (key === 's') { // 's' key
-    console.log("Move: down");
     connection.write("Move: down")
   } else if (key === 'd') { // 'd' key
-    console.log("Move: right");
     connection.write("Move: right")
   }else if (key === 'b') { // 'b' key
     connection.write("Say: BrInG iT oN!!!");

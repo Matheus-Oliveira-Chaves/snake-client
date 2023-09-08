@@ -1,36 +1,28 @@
-const net = require("net");
-const {IP, PORT} = require("./constants")
+const net = require("net"); // importing net module
+const { IP, PORT } = require("./constants") //importing IP and PORT from constants.js
 
 
 const connect = function () {
-  const conn = net.createConnection({
+  const conn = net.createConnection({ // Creating a network connection
     host: IP,
     port: PORT,
   });
 
-  conn.setEncoding("utf8");
+  conn.setEncoding("utf8"); //
 
-  conn.on("connect", () => {
+  conn.on("connect", () => { //event listener for successifull connection
     console.log("Successfully connected to game server");
-    conn.write("Name: MAT");
+    conn.write("Name: MAT"); //sending player name to server
   });
 
-  
-  // setInterval(() => {
-    //   conn.write("Move: up");
-    // }, 50);
-    
-    conn.on("data", (data) => {
-      console.log(data);
-    });
-    
-    return conn;
-  };
-  
-  
-  
+  conn.on("data", (data) => {//event listener for received data from server
+    console.log(data);
+  });
+
+  return conn;
+};
+
 module.exports = {
   net,
   connect,
-  
 }
