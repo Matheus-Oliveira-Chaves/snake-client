@@ -28,6 +28,10 @@ const handleUserInput = function (key) {
   } else if (key === 'd') { // 'd' key
     console.log("Move: right");
     connection.write("Move: right")
+  }else if (key === 'b') { // 'b' key
+    connection.write("Say: BrInG iT oN!!!");
+  }else if (key === 'l') { // 'l' key
+    connection.write("Say: let`s gooooo!!!");
   }
 }
 
